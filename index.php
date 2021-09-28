@@ -136,22 +136,22 @@ use Rct567\DomQuery\DomQuery;
             $html   = $result['content'];
             $dom    = new DomQuery($html);
 
-            // if(gettype($dom) == 'boolean'){
-            //     echo $dom;
-            //     notFound($number, $file_name);
-            //     createLog($number, $key . ' - Boolean');
-            //     continue;
-            // }
+            if(gettype($dom) == 'boolean'){
+                echo $dom;
+                notFound($number, $file_name);
+                createLog($number, $key . ' - Boolean');
+                continue;
+            }
 
-            // $nodes  = $dom->find("input[type=hidden]");
+            $nodes  = $dom->find("input[type=hidden]");
 
-            // foreach ($nodes as $node){
-            //     $token = $node->value;
-            // }
+            foreach ($nodes as $node){
+                $token = $node->value;
+            }
 
-            // $dom = str_get_html(postReq((int)$number, $token));
+            $dom = str_get_html(postReq((int)$number, $token));
 
-            // echo $token;
+            echo $token;
             // die();
 
             // // Create request log for data
