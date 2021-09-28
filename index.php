@@ -151,7 +151,7 @@ use Rct567\DomQuery\DomQuery;
 
             $dom = str_get_html(postReq((int)$number, $token));
 
-            echo $token;
+            echo $token ?? 'not found';
             // die();
 
             // // Create request log for data
