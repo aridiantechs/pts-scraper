@@ -129,29 +129,29 @@ use Rct567\DomQuery\DomQuery;
             // echo 'server output'; 
             
             echo $number = $_POST['number'];
-            die();
-            $token  = '';
-            $url    = 'https://nummer.pts.se/NbrSearch';
-            $result = getWebPage($url);
-            $html   = $result['content'];
-            $dom    = new DomQuery($html);
+            // die();
+            // $token  = '';
+            // $url    = 'https://nummer.pts.se/NbrSearch';
+            // $result = getWebPage($url);
+            // $html   = $result['content'];
+            // $dom    = new DomQuery($html);
 
-            if(gettype($dom) == 'boolean'){
-                echo $dom;
-                notFound($number, $file_name);
-                createLog($number, $key . ' - Boolean');
-                continue;
-            }
+            // if(gettype($dom) == 'boolean'){
+            //     echo $dom;
+            //     notFound($number, $file_name);
+            //     createLog($number, $key . ' - Boolean');
+            //     continue;
+            // }
 
-            $nodes  = $dom->find("input[type=hidden]");
+            // $nodes  = $dom->find("input[type=hidden]");
 
-            foreach ($nodes as $node){
-                $token = $node->value;
-            }
+            // foreach ($nodes as $node){
+            //     $token = $node->value;
+            // }
 
-            $dom = str_get_html(postReq((int)$number, $token));
+            // $dom = str_get_html(postReq((int)$number, $token));
 
-            echo $token ?? 'not found';
+            // echo $token ?? 'not found';
             // die();
 
             // // Create request log for data
