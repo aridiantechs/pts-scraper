@@ -134,6 +134,9 @@ use Rct567\DomQuery\DomQuery;
             $url    = 'https://nummer.pts.se/NbrSearch';
             $result = getWebPage($url);
             $html   = $result['content'];
+
+            echo $html;
+
             $dom    = new DomQuery($html);
 
             if(gettype($dom) == 'boolean'){
@@ -143,14 +146,17 @@ use Rct567\DomQuery\DomQuery;
                 // continue;
             }
             else{
-                echo 'Boolean found';
+
+                echo 'Not Boolean';
             }
 
-            // $nodes  = $dom->find("input[type=hidden]");
+            $nodes  = $dom->find("input[type=hidden]");
 
-            // foreach ($nodes as $node){
-            //     $token = $node->value;
-            // }
+            foreach ($nodes as $node){
+                $token = $node->value;
+            }
+
+            echo $token ?? 'not found';
 
             // $dom = str_get_html(postReq((int)$number, $token));
 
