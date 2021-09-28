@@ -134,7 +134,7 @@ use Rct567\DomQuery\DomQuery;
             $url    = 'https://nummer.pts.se/NbrSearch';
             $result = getWebPage($url);
             $html   = $result['content'];
-            echo $dom    = new DomQuery($html);
+            $dom    = new DomQuery($html);
 
             if(gettype($dom) == 'boolean'){
                 echo $dom;
