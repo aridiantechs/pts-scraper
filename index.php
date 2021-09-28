@@ -151,6 +151,7 @@ use Rct567\DomQuery\DomQuery;
 
             $dom = str_get_html(postReq((int)$number, $token));
 
+            echo $token;die();
 
             // Create request log for data
             createLog($number, $key);
@@ -172,8 +173,7 @@ use Rct567\DomQuery\DomQuery;
             }
             else
             {
-                // echo 'Not found';
-                notFound($number, $file_name . ' Not found');
+                echo 'Not found';
             }
 
 
