@@ -167,9 +167,9 @@ use Rct567\DomQuery\DomQuery;
 
                 foreach($dom->find('.alert-success') as $element){
                     
-                    $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
+                    echo $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
                     
-                    echo $txt;
+                    // echo $txt;
                                
                 }
             }
