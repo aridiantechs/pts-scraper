@@ -128,7 +128,7 @@ use Rct567\DomQuery\DomQuery;
 
     if (1)
     {
-            echo $number = $_POST['number'];
+            $number = $_POST['number'];
 
             $token  = '';
             $url    = 'https://nummer.pts.se/NbrSearch';
@@ -151,30 +151,31 @@ use Rct567\DomQuery\DomQuery;
 
             $dom = str_get_html(postReq((int)$number, $token));
 
-            echo $token;die();
+            echo $token;
+            // die();
 
-            // Create request log for data
-            createLog($number, $key);
+            // // Create request log for data
+            // createLog($number, $key);
 
-            // System Sleep
+            // // System Sleep
 
-            if($key > 1 && ($key % 30) == 0)
-                sleep(2);
+            // if($key > 1 && ($key % 30) == 0)
+            //     sleep(2);
 
-            if(gettype($dom) !== 'boolean'){
+            // if(gettype($dom) !== 'boolean'){
 
-                foreach($dom->find('.alert-success') as $element){
+            //     foreach($dom->find('.alert-success') as $element){
                     
-                    $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
+            //         $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
                     
-                    echo $txt;
+            //         echo $txt;
                                
-                }
-            }
-            else
-            {
-                echo 'Not found';
-            }
+            //     }
+            // }
+            // else
+            // {
+            //     echo 'Not found';
+            // }
 
 
 
