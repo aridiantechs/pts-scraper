@@ -134,14 +134,14 @@ use Rct567\DomQuery\DomQuery;
             $url    = 'https://nummer.pts.se/NbrSearch';
             $result = getWebPage($url);
             $html   = $result['content'];
-            $dom    = new DomQuery($html);
+            echo $dom    = new DomQuery($html);
 
-            // if(gettype($dom) == 'boolean'){
-            //     echo $dom;
-            //     notFound($number, $file_name);
-            //     createLog($number, $key . ' - Boolean');
-            //     continue;
-            // }
+            if(gettype($dom) == 'boolean'){
+                echo $dom;
+                notFound($number, $file_name);
+                createLog($number, $key . ' - Boolean');
+                continue;
+            }
 
             // $nodes  = $dom->find("input[type=hidden]");
 
