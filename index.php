@@ -130,51 +130,51 @@ use Rct567\DomQuery\DomQuery;
     {
             echo $number = $_POST['number'];
 
-            // $token  = '';
-            // $url    = 'https://nummer.pts.se/NbrSearch';
-            // $result = getWebPage($url);
-            // $html   = $result['content'];
-            // $dom    = new DomQuery($html);
+            $token  = '';
+            $url    = 'https://nummer.pts.se/NbrSearch';
+            $result = getWebPage($url);
+            $html   = $result['content'];
+            $dom    = new DomQuery($html);
 
-            // if(gettype($dom) == 'boolean'){
-            //     echo $dom;
-            //     notFound($number, $file_name);
-            //     createLog($number, $key . ' - Boolean');
-            //     continue;
-            // }
+            if(gettype($dom) == 'boolean'){
+                echo $dom;
+                notFound($number, $file_name);
+                createLog($number, $key . ' - Boolean');
+                continue;
+            }
 
-            // $nodes  = $dom->find("input[type=hidden]");
+            $nodes  = $dom->find("input[type=hidden]");
 
-            // foreach ($nodes as $node){
-            //     $token = $node->value;
-            // }
+            foreach ($nodes as $node){
+                $token = $node->value;
+            }
 
-            // $dom = str_get_html(postReq((int)$number, $token));
+            $dom = str_get_html(postReq((int)$number, $token));
 
 
-            // // Create request log for data
-            // createLog($number, $key);
+            // Create request log for data
+            createLog($number, $key);
 
-            // // System Sleep
+            // System Sleep
 
-            // if($key > 1 && ($key % 30) == 0)
-            //     sleep(2);
+            if($key > 1 && ($key % 30) == 0)
+                sleep(2);
 
-            // if(gettype($dom) !== 'boolean'){
+            if(gettype($dom) !== 'boolean'){
 
-            //     foreach($dom->find('.alert-success') as $element){
+                foreach($dom->find('.alert-success') as $element){
                     
-            //         $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
+                    $txt = trim(str_replace('tillh&#246;r','-',$element->text())). "\n" ;
                     
-            //         echo $txt;
+                    echo $txt;
                                
-            //     }
-            // }
-            // else
-            // {
-            //     // echo 'Not found';
-            //     notFound($number, $file_name . ' Not found');
-            // }
+                }
+            }
+            else
+            {
+                // echo 'Not found';
+                notFound($number, $file_name . ' Not found');
+            }
 
 
 
