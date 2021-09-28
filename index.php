@@ -142,10 +142,7 @@ use Rct567\DomQuery\DomQuery;
                 createLog($number, $key . ' - Boolean');
                 // continue;
             }
-            else{
-
-                echo 'Not Boolean';
-            }
+            
 
             $nodes  = $dom->find("input[type=hidden]");
 
