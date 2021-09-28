@@ -137,10 +137,13 @@ use Rct567\DomQuery\DomQuery;
             $dom    = new DomQuery($html);
 
             if(gettype($dom) == 'boolean'){
-                echo $dom;
+                
                 notFound($number, $file_name);
                 createLog($number, $key . ' - Boolean');
-                continue;
+                // continue;
+            }
+            else{
+                echo 'Boolean found';
             }
 
             // $nodes  = $dom->find("input[type=hidden]");
