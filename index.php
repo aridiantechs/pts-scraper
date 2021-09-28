@@ -134,9 +134,6 @@ use Rct567\DomQuery\DomQuery;
             $url    = 'https://nummer.pts.se/NbrSearch';
             $result = getWebPage($url);
             $html   = $result['content'];
-
-            echo $html;
-
             $dom    = new DomQuery($html);
 
             if(gettype($dom) == 'boolean'){
@@ -156,9 +153,7 @@ use Rct567\DomQuery\DomQuery;
                 $token = $node->value;
             }
 
-            echo $token ?? 'not found';
-
-            // $dom = str_get_html(postReq((int)$number, $token));
+            echo $dom = str_get_html(postReq((int)$number, $token));
 
             // echo $token ?? 'not found';
             // die();
