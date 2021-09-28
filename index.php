@@ -130,11 +130,11 @@ use Rct567\DomQuery\DomQuery;
             
             echo $number = $_POST['number'];
             // die();
-            // $token  = '';
-            // $url    = 'https://nummer.pts.se/NbrSearch';
-            // $result = getWebPage($url);
-            // $html   = $result['content'];
-            // $dom    = new DomQuery($html);
+            $token  = '';
+            $url    = 'https://nummer.pts.se/NbrSearch';
+            $result = getWebPage($url);
+            $html   = $result['content'];
+            $dom    = new DomQuery($html);
 
             // if(gettype($dom) == 'boolean'){
             //     echo $dom;
