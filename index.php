@@ -128,7 +128,9 @@ use Rct567\DomQuery\DomQuery;
 
     if (1)
     {
-            $number = $_POST['number'];
+            echo 'server output'; 
+            
+            echo $number = $_POST['number'];
 
             $token  = '';
             $url    = 'https://nummer.pts.se/NbrSearch';
