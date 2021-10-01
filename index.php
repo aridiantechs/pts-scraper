@@ -113,6 +113,19 @@ use Rct567\DomQuery\DomQuery;
             fclose($myfile);
     }
 
+    function createCounts($number, $file, $count)
+    {
+            $myfile = fopen('./counts/'.$file.'.txt', "a") or die("Unable to open file!");
+
+            $txt = $number . ' - ' . $count;
+
+            fwrite($myfile, $txt);
+
+            fwrite($myfile, "\n");
+
+            fclose($myfile);
+    }
+
     function notFound($number, $file_name)
     {
             $myfile = fopen('./uploads/'.$file_name.'.txt', "a") or die("Unable to open file!");
@@ -126,42 +139,35 @@ use Rct567\DomQuery\DomQuery;
 
     if (1)
     {
-            // echo 'server output'; 
-            
             $number = $_POST['number'];
-            // die();
+            $count  = $_POST['count'];
             $token  = '';
             $url    = 'https://nummer.pts.se/NbrSearch';
             $result = getWebPage($url);
             $html   = $result['content'];
+            $file_name = $_POST['file_name'];
+            
             $dom    = new DomQuery($html);
 
             if(gettype($dom) == 'boolean'){
                 
                 notFound($number, $file_name);
+
                 createLog($number, $key . ' - Boolean');
-                // continue;
+                
             }
             
-
             $nodes  = $dom->find("input[type=hidden]");
 
             foreach ($nodes as $node){
+                
                 $token = $node->value;
+
             }
 
             $dom = str_get_html(postReq((int)$number, $token));
 
-            // echo $token ?? 'not found';
-            // die();
-
-            // // Create request log for data
-            // createLog($number, $key);
-
-            // System Sleep
-
-            // if($key > 1 && ($key % 30) == 0)
-            //     sleep(2);
+            createCounts($number, $file_name, $count);
 
             if(gettype($dom) !== 'boolean'){
 
@@ -175,7 +181,9 @@ use Rct567\DomQuery\DomQuery;
             }
             else
             {
+                
                 echo 'Not found';
+
             }
 
 
